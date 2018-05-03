@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast
+        xsi:schemaLocation="http://www.hazelcast.com/schema/config http://www.hazelcast.com/schema/config/hazelcast-config-3.10.xsd"
+        xmlns="http://www.hazelcast.com/schema/config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <management-center enabled="true">http://localhost:8080/mancenter</management-center>
+
+    <map name="person">
+        <map-store enabled="true" initial-mode="LAZY">
+            <class-name>mongoExample.MongoMapStore</class-name>
+            <properties>
+                <property name="mongo.url">mongodb://localhost:27017</property>
+                <property name="mongo.db">local</property>
+                <property name="mongo.collection">person</property>
+            </properties>
+        </map-store>
+    </map>
+</hazelcast>
